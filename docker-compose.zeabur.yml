@@ -1,15 +1,5 @@
-
-     抱歉没说清楚。就是下面这段，直接全选复制：
-
      yaml
      Zeabur cloud deployment for Hermes Agent
-     Zeabur auto-detects docker-compose.yml; we override with this file.
-     Set environment variables in Zeabur dashboard:
-     DEEPSEEK_API_KEY (required)
-     HERMES_MODEL (optional, default: deepseek-v4-pro)
-     HERMES_PROVIDER (optional, default: deepseek)
-     The container exposes port 9119 — Zeabur auto-assigns a public domain.
-
      services:
        hermes:
          build:
@@ -26,6 +16,9 @@
            - DEEPSEEK_API_KEY
            - HERMES_MODEL=${HERMES_MODEL:-deepseek-v4-pro}
            - HERMES_PROVIDER=${HERMES_PROVIDER:-deepseek}
+           - HERMES_DASHBOARD_BASIC_AUTH_USERNAME
+           - HERMES_DASHBOARD_BASIC_AUTH_PASSWORD_HASH
+           - HERMES_DASHBOARD_BASIC_AUTH_SECRET
          command:
            - "dashboard"
            - "--host"
