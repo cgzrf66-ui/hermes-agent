@@ -1,9 +1,6 @@
      toml
      [build]
      builder = "docker"
-     dockerfile = "Dockerfile"
-     build_command = ""
-     start_command = ""
 
      [service]
      port = 9119
